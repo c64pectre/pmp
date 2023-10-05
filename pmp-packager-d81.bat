@@ -1,5 +1,5 @@
 @rem    PMP: Poor Man's Project build automation tool.
-@rem    Copyright (C) 2022  C64PECTRE
+@rem    Copyright (C) 2022, 2023  C64PECTRE
 @rem
 @rem    This program is free software: you can redistribute it and/or modify
 @rem    it under the terms of the GNU General Public License as published by
@@ -17,3 +17,4 @@
 @rem    Contact: https://github.com/c64pectre/keyboard-matrix/ create an issue
 
 set PMP_PACKAGER_PACKAGE=pmp-packager-dxx-package.bat
+set PMP_PACKAGER_DXX_OPTIONS=

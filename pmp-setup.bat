@@ -1,5 +1,5 @@
 @rem    PMP: Poor Man's Project build automation tool.
-@rem    Copyright (C) 2022  C64PECTRE
+@rem    Copyright (C) 2022, 2023  C64PECTRE
 @rem
 @rem    This program is free software: you can redistribute it and/or modify
 @rem    it under the terms of the GNU General Public License as published by
@@ -17,7 +17,8 @@
 @rem    Contact: https://github.com/c64pectre/keyboard-matrix/ create an issue
 
 call pmp-defaults.bat
-if not exist .\pmp.bat echo "Error: %CD%\pmp.bat not present." && exit /B 1
+call pmp-i18n.bat
+if not exist .\pmp.bat echo "%PMP_I18N_ERROR_PMP_BAT_NOT_PRESENT_IN% %CD%" && exit /B 1
 call .\pmp.bat
 call pmp-init.bat
 call .\pmp.bat

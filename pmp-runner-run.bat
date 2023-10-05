@@ -1,5 +1,5 @@
 @rem    PMP: Poor Man's Project build automation tool.
-@rem    Copyright (C) 2022  C64PECTRE
+@rem    Copyright (C) 2022, 2023  C64PECTRE
 @rem
 @rem    This program is free software: you can redistribute it and/or modify
 @rem    it under the terms of the GNU General Public License as published by
@@ -23,12 +23,12 @@ setlocal EnableDelayedExpansion
 call pmp-setup.bat
 if %ERRORLEVEL% neq 0 exit /B 1
 
-set PMP_RUNNER_RUN_HEADER=pmp-runner-run %PMP_PROJECT_GROUP_ID%:%PMP_PROJECT_ARTIFACT_ID%:%PMP_PROJECT_ARTIFACT_VERSION% with %PMP_RUNNER%
+set PMP_RUNNER_RUN_HEADER=%~n0 %PMP_PROJECT_GROUP_ID%:%PMP_PROJECT_ARTIFACT_ID%:%PMP_PROJECT_ARTIFACT_VERSION% %PMP_I18N_WITH% %PMP_RUNNER%
 echo %PMP_RUNNER_RUN_HEADER%
 
 call "%PMP_RUNNER_RUN%"
 
-if %ERRORLEVEL% equ 0 echo %PMP_RUNNER_RUN_HEADER% succeeded
-if %ERRORLEVEL% neq 0 echo %PMP_RUNNER_RUN_HEADER% failed
+if %ERRORLEVEL% equ 0 echo %PMP_RUNNER_RUN_HEADER% %PMP_I18N_SUCCEEDED%
+if %ERRORLEVEL% neq 0 echo %PMP_RUNNER_RUN_HEADER% %PMP_I18N_FAILED%
 
 endlocal

@@ -1,5 +1,5 @@
 @rem    PMP: Poor Man's Project build automation tool.
-@rem    Copyright (C) 2022, 2023  C64PECTRE
+@rem    Copyright (C) 2023  C64PECTRE
 @rem
 @rem    This program is free software: you can redistribute it and/or modify
 @rem    it under the terms of the GNU General Public License as published by
@@ -16,5 +16,10 @@
 @rem
 @rem    Contact: https://github.com/c64pectre/keyboard-matrix/ create an issue
 
-set PMP_RUNNER_RUN=pmp-runner-x64sc-run.bat
-set PMP_RUNNER_X64SC_OPTIONS=
+set PMP_I18N_COMPILING=compiling
+set PMP_I18N_ERROR_PMP_BAT_NOT_PRESENT_IN=Error: pmp.bat not present in
+set PMP_I18N_FAILED=failed
+set PMP_I18N_PACKAGING=packaging
+set PMP_I18N_SUCCEEDED=succeeded
+set PMP_I18N_TO=to
+set PMP_I18N_WITH=with

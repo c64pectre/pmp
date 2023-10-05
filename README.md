@@ -11,8 +11,8 @@ Currently supported:
 * Windows Command Prompt [https://www.microsoft.com/]
 
 # Setup
-* Put in C:\Program Files\PMP (We use C:\usr\pmp\)
-* Add to PATH environment variable
+* Put in in some folder (We use C:\usr\pmp\)
+* Add above folder to PATH environment variable
 
 # Usage
 * pmp.bat : Your project settings

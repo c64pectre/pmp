@@ -1,5 +1,5 @@
 @rem    PMP: Poor Man's Project build automation tool.
-@rem    Copyright (C) 2022  C64PECTRE
+@rem    Copyright (C) 2022, 2023  C64PECTRE
 @rem
 @rem    This program is free software: you can redistribute it and/or modify
 @rem    it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ setlocal EnableDelayedExpansion
 call pmp-setup.bat
 if %ERRORLEVEL% neq 0 exit /B 1
 
-set PMP_RUN_HEADER=pmp-run %PMP_PROJECT_GROUP_ID%:%PMP_PROJECT_ARTIFACT_ID%:%PMP_PROJECT_ARTIFACT_VERSION%
+set PMP_RUN_HEADER=%~n0 %PMP_PROJECT_GROUP_ID%:%PMP_PROJECT_ARTIFACT_ID%:%PMP_PROJECT_ARTIFACT_VERSION%
 echo %PMP_RUN_HEADER%
 
 call pmp-package.bat

@@ -1,5 +1,5 @@
 @rem    PMP: Poor Man's Project build automation tool.
-@rem    Copyright (C) 2022  C64PECTRE
+@rem    Copyright (C) 2022, 2023  C64PECTRE
 @rem
 @rem    This program is free software: you can redistribute it and/or modify
 @rem    it under the terms of the GNU General Public License as published by
@@ -21,7 +21,7 @@ setlocal EnableDelayedExpansion
 set CA65=ca65.exe
 set CA65_OPTIONS=-g -v --target c64 "-I%CA65_INC%" %PMP_COMPILER_CA65_OPTIONS%
 
-echo CA65_OPTIONS = %CA65_OPTIONS%
+echo(   CA65_OPTIONS = %CA65_OPTIONS%
 mkdir "%PMP_PROJECT_TARGET%" 2>nul
 
 for %%s in ( %PMP_PROJECT_SOURCE%\*.asm ) do (
