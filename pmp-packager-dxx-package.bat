@@ -28,6 +28,7 @@ set C1541_WRITE=
 
 rem Collect module targets
 for %%m in ( %PMP_PROJECT_MODULES% ) do (
+    if not exist ".\%%m" echo %~n0 %PMP_I18N_FATAL%: %PMP_I18N_MODULE_PATH% "%CD%\%%m" %PMP_I18N_DOES_NOT_EXIST%. & exit /B 1
     pushd ".\%%m"
     if !ERRORLEVEL! neq 0 exit /B 1
     if not exist .\pmp.bat echo "%PMP_I18N_ERROR_PMP_BAT_NOT_PRESENT_IN% %CD%" && exit /B 1

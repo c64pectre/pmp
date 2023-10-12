@@ -19,7 +19,7 @@
 setlocal EnableDelayedExpansion
 
 set LD65=ld65.exe
-set LD65_OPTIONS=-vm %PMP_PACKAGER_LD65_OPTIONS%
+set LD65_OPTIONS=-vm
 set LD65_MODULES=
 
 rem Collect modules
@@ -34,6 +34,7 @@ for %%s in (%PMP_PROJECT_TARGET%\*.o) do (
     -m "%PMP_PROJECT_TARGET%\%PMP_PROJECT_ARTIFACT_ID%.map" ^
     -o "%PMP_PROJECT_TARGET%\%PMP_PROJECT_ARTIFACT_ID%.%PMP_PROJECT_PACKAGING%" ^
     --dbgfile "%PMP_PROJECT_TARGET%\%PMP_PROJECT_ARTIFACT_ID%.ld65-debug" ^
+    %PMP_PACKAGER_LD65_OPTIONS% ^
     %LD65_MODULES%
 if %ERRORLEVEL% neq 0 exit /B 1
 

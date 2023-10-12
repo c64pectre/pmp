@@ -33,6 +33,7 @@ call pmp-setup.bat
 if %ERRORLEVEL% neq 0 exit /B 1
 
 for %%m in ( %PMP_PROJECT_MODULES% ) do (
+    if not exist ".\%%m" echo %PMP_PACKAGE_HEADER% %PMP_I18N_FATAL%: %PMP_I18N_MODULE_PATH% "%CD%\%%m" %PMP_I18N_DOES_NOT_EXIST%. & exit /B 1
     pushd ".\%%m"
     if !ERRORLEVEL! neq 0 exit /B 1
     set EL=0

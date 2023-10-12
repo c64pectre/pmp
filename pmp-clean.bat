@@ -27,6 +27,7 @@ set PMP_CLEAN_HEADER=%~n0 %PMP_PROJECT_GROUP_ID%:%PMP_PROJECT_ARTIFACT_ID%:%PMP_
 echo %PMP_CLEAN_HEADER%
 
 for %%m in ( %PMP_PROJECT_MODULES% ) do (
+    if not exist ".\%%m" echo %PMP_CLEAN_HEADER% %PMP_I18N_FATAL%: %PMP_I18N_MODULE_PATH% "%CD%\%%m" %PMP_I18N_DOES_NOT_EXIST%. & exit /B 1
     pushd ".\%%m"
     if !ERRORLEVEL! neq 0 exit /B 1
     set EL=0
