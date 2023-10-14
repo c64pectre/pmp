@@ -24,7 +24,7 @@ set C1541=c1541.exe
 set C1541_DISKNAME=%PMP_PROJECT_ARTIFACT_ID%
 set C1541_DISKID=00
 set C1541_IMAGE=%PMP_PROJECT_ARTIFACT_ID%.%PMP_PROJECT_PACKAGING%
-set C1541_WRITE=
+set C1541_WRITES=
 
 rem Collect module targets
 for %%m in ( %PMP_PROJECT_MODULES% ) do (
@@ -33,9 +33,12 @@ for %%m in ( %PMP_PROJECT_MODULES% ) do (
     if !ERRORLEVEL! neq 0 exit /B 1
     if not exist .\pmp.bat echo "%PMP_I18N_ERROR_PMP_BAT_NOT_PRESENT_IN% %CD%" && exit /B 1
     call .\pmp.bat
-    set C1541_WRITE=!C1541_WRITE! -write "%%m\!PMP_PROJECT_TARGET!\!PMP_PROJECT_ARTIFACT_ID!.!PMP_PROJECT_PACKAGING!" "!PMP_PROJECT_ARTIFACT_ID!.!PMP_PROJECT_PACKAGING!" !PMP_PACKAGER_DXX_ADDITIONAL_WRITES!
+    set C1541_WRITE=-write "%%m\!PMP_PROJECT_TARGET!\!PMP_PROJECT_ARTIFACT_ID!.!PMP_PROJECT_PACKAGING!" "!PMP_PROJECT_ARTIFACT_ID!,!PMP_PROJECT_PACKAGING!"
+    set C1541_WRITES=!C1541_WRITES! !C1541_WRITE!
     popd
 )
+
+set C1541_WRITES=!C1541_WRITES! !PMP_PACKAGER_DXX_ADDITIONAL_WRITES!
 
 rem We need to call pmp.bat again to get back our settings that were overwritten in above for.
 call pmp-setup.bat
